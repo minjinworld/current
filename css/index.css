@@ -1,0 +1,738 @@
+@charset "utf-8";
+
+/* 배너,헤더 */
+.banner {
+  height: 100vh;
+  background-color: lightgray;
+}
+.header-area {
+  height: 200px;
+  /* background-color: antiquewhite; */
+  padding: 50px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  transition: 0.5s;
+}
+.header-area.active {
+  height: 100px;
+  background-color: #fff;
+  padding: 30px;
+}
+.header-logo {
+  width: 680px;
+  height: 100%;
+  transition: 0.5s;
+}
+.header-logo.active {
+  width: 270px;
+}
+.header-logo svg {
+  transition: 0.3s;
+}
+.header-logo svg:hover {
+  fill: #f98011;
+  /* svg코드로 색상 변경 지정시 fill컬러로 지정 */
+}
+/* 메뉴버튼 */
+.menu-btn {
+  width: 40px;
+  height: 25px;
+  /* background-color: aqua; */
+  position: relative;
+  z-index: 999;
+  transition: 0.5s;
+}
+.menu-btn.active {
+  transform: rotate(30deg);
+}
+.menu-btn span:nth-child(1).active {
+  width: 50%;
+  /* background-color: #000; */
+}
+.menu-btn span:nth-child(2).active {
+  width: 75%;
+  /* background-color: #000; */
+}
+.menu-btn span {
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+.menu-btn span:nth-child(2) {
+  top: 50%;
+}
+.menu-btn span:nth-child(3) {
+  top: 100%;
+}
+
+/* 클릭시 열리는 메뉴 */
+.menu-bar-box {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: 0.5s;
+
+  /* 추가 */
+  z-index: 0;
+  /* overflow: visible; */
+}
+
+/* 추가하고 스크립트 수정(적용안하면 메뉴가 아래서는 안보이고 토글시 hover오류 */
+.menu-bar-box.active {
+  position: fixed;
+  opacity: 1;
+  z-index: 99;
+}
+.menu-bar {
+  position: absolute;
+  width: 100vw;
+  height: 175px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.menu-bar .menu {
+  font-size: 4.375rem;
+  color: #fff;
+  margin-right: 3.75rem;
+  transition: 0.3s;
+}
+.menu-bar .menu:hover {
+  color: #f98011;
+  font-size: 5rem;
+}
+
+/* 슬라이더 */
+.slider-wrap {
+  width: 100%;
+  height: 100%;
+}
+.slider-wrap .auto-slider {
+  width: 400%;
+  height: 100%;
+  display: flex;
+}
+.slider-wrap .slider-1 {
+  width: 25%;
+  height: 100%;
+  background: url(../img/main-banner.jpg) no-repeat center center;
+  background-size: cover;
+}
+.slider-wrap .slider-2 {
+  width: 25%;
+  height: 100%;
+  background: url(../img/banner_0.jpg) no-repeat center center;
+  background-size: cover;
+}
+.slider-wrap .slider-3 {
+  width: 25%;
+  height: 100%;
+  background: url(../img/banner_1.jpg) no-repeat center center;
+  background-size: cover;
+}
+.slider-wrap .slider-4 {
+  width: 25%;
+  height: 100%;
+  background: url(../img/banner_2.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+/* 스와이퍼 커스텀 */
+/* 추가 */
+.swiper {
+  z-index: 0;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev,
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  font-size: 80px;
+  margin-left: 50px;
+}
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  font-size: 80px;
+  margin-right: 50px;
+}
+
+/* swiper버튼 커스텀(안보이게 처리) */
+.swiper-button-next,
+.swiper-button-prev {
+  opacity: 0;
+}
+
+/* sec-1 */
+
+/*공통 스타일 */
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 100px 0 150px;
+}
+.section-head-box .section-head {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 45px;
+  color: #222;
+
+  /* 추가 */
+  cursor: pointer;
+}
+
+.sec-1 .section-head-box {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* 늘어나는 화살표 */
+.sec-1 .arrow-r {
+  width: 300px;
+  height: 40px;
+  background: url(../img/arrow-short.svg) no-repeat;
+  background-size: contain;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.sec-1 .arrow-r:hover {
+  background: url(../img/arrow-long.svg) no-repeat;
+  width: 300px;
+  height: 40px;
+  background-size: contain;
+}
+
+/* 애니메이션 슬라이더박스 */
+.sec-1 .animate-slider-wrap {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  /* border: 1px solid #dbdbdb; */
+}
+.sec-1 .animate-slider {
+  display: flex;
+  width: 2645px;
+  animation: slide 50s linear infinite;
+}
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.sec-1 .animate-slider a {
+  display: inline-block;
+}
+.sec-1 .content {
+  width: 395px;
+  height: 550px;
+  /* padding-bottom: 150%; */
+  margin-right: 15px;
+  background-color: #222;
+  border: 1px solid #dbdbdb;
+
+  /* 추가 */
+  z-index: 1;
+}
+.sec-1 .content.con-1 {
+  background: url(../img/slider_0.jpg) no-repeat;
+  background-size: cover;
+  transition: 0.5s;
+}
+.sec-1 .content.con-2 {
+  background: url(../img/slider_1.jpg) no-repeat;
+  background-size: cover;
+  transition: 0.5s;
+}
+.sec-1 .content.con-3 {
+  background: url(../img/slider_2.jpg) no-repeat;
+  background-size: cover;
+  transition: 0.5s;
+}
+.sec-1 .content.con-4 {
+  background: url(../img/slider_3.jpg) no-repeat;
+  background-size: cover;
+  transition: 0.5s;
+}
+.sec-1 .content.con-5 {
+  background: url(../img/slider_4.jpg) no-repeat;
+  background-size: cover;
+  transition: 0.5s;
+}
+.sec-1 .content.con-6 {
+  background: url(../img/slider_5.jpg) no-repeat;
+  background-size: cover;
+  transition: 0.5s;
+}
+
+.sec-1 .content.con-1:hover {
+  background: url(../img/slider_hover_0.jpg) no-repeat;
+  background-size: cover;
+}
+.sec-1 .content.con-2:hover {
+  background: url(../img/slider_hover_1.jpg) no-repeat;
+  background-size: cover;
+}
+.sec-1 .content.con-3:hover {
+  background: url(../img/slider_hover_2.jpg) no-repeat;
+  background-size: cover;
+}
+.sec-1 .content.con-4:hover {
+  background: url(../img/slider_hover_3.jpg) no-repeat;
+  background-size: cover;
+}
+.sec-1 .content.con-5:hover {
+  background: url(../img/slider_hover_4.jpg) no-repeat;
+  background-size: cover;
+}
+.sec-1 .content.con-6:hover {
+  background: url(../img/slider_hover_5.jpg) no-repeat;
+  background-size: cover;
+}
+
+/* sec-2 */
+.sec-2 .about {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.sec-2 .left {
+  width: calc(50% - 20px);
+  margin-right: 20px;
+}
+.sec-2 .store {
+  padding-bottom: 66.666%;
+  background: url(../img/about.jpg) no-repeat;
+  background-size: cover;
+  margin-bottom: 15px;
+}
+.sec-2 .right {
+  width: 50%;
+}
+.sec-2 .right p {
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.sec-2 .right span {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* sec-3 */
+.sec-3 .insta-container {
+  width: 935px;
+  margin: 0 auto;
+}
+.sec-3 .profile {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  background: linear-gradient(
+    24deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 49%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.sec-3 .profile-link {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.sec-3 .profile-link a {
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: #252525;
+}
+.sec-3 .profile a {
+  display: inline-block;
+  width: 172px;
+  height: 172px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.sec-3 .profile-btn {
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 5px 9px;
+  box-sizing: border-box;
+  background: #0095f6;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+.sec-3 .highlight {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #c4c4c4;
+  padding-bottom: 35px;
+  box-sizing: border-box;
+  margin-bottom: 70px;
+}
+.sec-3 .highlight .con {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1px solid #c4c4c4;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.sec-3 .highlight .con-box .txt {
+  font-weight: 500;
+  text-align: center;
+  color: #252525;
+  font-size: 15px;
+  margin-top: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica;
+}
+
+.sec-3 .highlight .con img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.sec-3 .feed {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sec-3 .feed .con-box {
+  width: 33.333%;
+  height: 295px;
+  background-color: lightblue;
+  cursor: pointer;
+  object-position: top;
+  position: relative;
+  /* 사진 스케일 적용하고 설정 */
+  overflow: hidden;
+
+  /* 추가 */
+  z-index: 1;
+}
+.sec-3 .feed .con-box img {
+  object-position: top;
+  /* 사진 스케일 적용하고 설정 */
+  transition: 1s;
+}
+/* 10,12번 사진은 포지션 바꿔주기 */
+.sec-3 .feed .con-box:nth-child(10) img,
+.sec-3 .feed .con-box:nth-child(12) img {
+  object-position: 0 -60px;
+}
+
+/* sec-3 마우스 올리면 보이는 좋아요 박스(+사진 커지게하기) */
+.sec-3 .con-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.5s;
+}
+.sec-3 .feed .con-box:hover .con-back {
+  opacity: 1;
+}
+.sec-3 .feed .con-box:hover img {
+  transform: scale(1.2);
+}
+.sec-3 .con-back .like-box {
+  display: flex;
+  align-items: center;
+}
+.sec-3 .con-back p {
+  color: #fff;
+}
+.sec-3 .icon {
+  width: 30px;
+  height: 30px;
+}
+.sec-3 .icon.like {
+  background: url(../img/heart_bold.svg) no-repeat;
+  background-size: cover;
+}
+.sec-3 .icon.comment {
+  background: url(../img/comment_bold.svg) no-repeat;
+  background-size: cover;
+  margin-left: 20px;
+}
+
+/* footer */
+footer {
+  background-color: #222;
+  padding: 0 170px;
+}
+.f-box {
+  display: flex;
+}
+.f-box li {
+  padding: 50px 0;
+  margin-right: 30px;
+}
+.f-box a {
+  color: #fff;
+  font-size: 2rem;
+}
+
+@media (max-width: 1200px) {
+  html,
+  body {
+    font-size: 90%;
+  }
+  .container {
+    width: 960px;
+  }
+
+  .sec-1 .arrow-r {
+    display: none;
+  }
+  .sec-2 .about {
+    display: block;
+  }
+  .sec-2 .left,
+  .sec-2 .right {
+    width: 100%;
+  }
+
+  footer {
+    padding: 0px 50px;
+  }
+}
+@media (max-width: 960px) {
+  html,
+  body {
+    font-size: 85%;
+  }
+  .header-logo {
+    width: 300px;
+  }
+  .header-area {
+    height: 70px;
+    padding: 10px;
+  }
+  .menu-btn {
+    width: 30px;
+    height: 20px;
+    /* background-color: aqua; */
+    position: relative;
+  }
+  .container,
+  .sec-3 .insta-container {
+    width: 760px;
+  }
+  .sec-3 .feed {
+    height: 1013px;
+  }
+  .sec-3 .feed .con-box {
+    height: 25%;
+  }
+}
+
+@media (max-width: 760px) {
+  .section-head-box .section-head {
+    margin-bottom: 25px;
+  }
+  .container,
+  .sec-3 .insta-container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .header-area.active {
+    height: 70px;
+    padding: 10px;
+  }
+  .header-logo.active {
+    width: 250px;
+  }
+  .menu-bar {
+    text-align: center;
+  }
+  .menu-bar .menu {
+    font-size: 2.5rem;
+  }
+  .menu-bar li {
+    display: block;
+    width: 100%;
+  }
+
+  .sec-1 .section-head-box {
+    display: block;
+  }
+  .sec-1 .arrow-r {
+    display: none;
+  }
+  .sec-1 .animate-slider {
+    animation: none;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .sec-1 .animate-slider a {
+    display: inline-block;
+    width: 50%;
+  }
+  .sec-1 .animate-slider.box2 {
+    display: none;
+  }
+  .sec-1 .content {
+    width: 100%;
+    /* height: 455px; */
+    pointer-events: none;
+
+    /* margin-right: 0; */
+  }
+
+  .sec-3 .feed {
+    height: 866px;
+  }
+  .f-box a {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 560px) {
+  html,
+  body {
+    font-size: 60%;
+  }
+  .container {
+    padding: 100px 15px 0 15px;
+  }
+  .header-area {
+    height: auto;
+    background-color: transparent;
+    padding: 10px;
+  }
+  .header-logo {
+    width: 200px;
+  }
+  .menu-btn {
+    width: 25px;
+    height: 15px;
+  }
+  .menu-btn span {
+    background: #000;
+  }
+  .menu-bar .menu {
+    margin-right: 0;
+  }
+  .menu-bar .menu:hover {
+    color: #f98011;
+    font-size: 2.5rem;
+  }
+
+  .sec-1 .animate-slider a {
+    width: 100%;
+  }
+
+  .sec-1 .content {
+    border: none;
+  }
+
+  .sec-2 .about .left p {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .sec-2 .about p {
+    font-size: 1.3rem;
+  }
+  .sec-2 .about span {
+    font-size: 1.5rem;
+  }
+
+  .sec-3 .insta-container {
+    width: 450px;
+    margin: 0;
+  }
+  .sec-3 .profile {
+    width: 130px;
+    height: 130px;
+  }
+  .sec-3 .profile a {
+    width: 122px;
+    height: 122px;
+  }
+  .sec-3 .highlight {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .sec-3 .highlight .con-box:nth-child(4),
+  .sec-3 .highlight .con-box:nth-child(5),
+  .sec-3 .highlight .con-box:nth-child(6) {
+    display: none;
+  }
+  .sec-3 .highlight .con {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+  }
+  .sec-3 .highlight .con img {
+    width: 70px;
+    height: 70px;
+  }
+  .sec-3 .feed {
+    height: 600px;
+  }
+  .sec-3 .feed .con-box:nth-child(10) img,
+  .sec-3 .feed .con-box:nth-child(12) img {
+    object-position: 0 -30px;
+  }
+
+  footer {
+    padding: 0px 20px;
+    margin-top: 100px;
+  }
+  .f-box li {
+    padding: 30px 0;
+    margin-right: 30px;
+  }
+}
+
+/* @media (max-width: 375px) {
+  .sec-1 .content {
+  }
+} */
